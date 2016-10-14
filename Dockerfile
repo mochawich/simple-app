@@ -8,7 +8,7 @@ WORKDIR /simple-app
 ADD . /simple-app/
 
 # Install the app requirements
-RUN pip install -r src/requirements.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 8001
 

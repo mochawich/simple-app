@@ -6,16 +6,6 @@ machine:
   services:
     - docker
 
-dependencies:
-  pre:
-  override:
-  post:
-
-test:
-  pre:
-  override:
-  post:
-
 deployment:
   deploy-develop:
     branch: develop
