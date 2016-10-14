@@ -14,7 +14,7 @@ deployment:
         docker build
         --build-arg APP_ENV=training
         -t twtest/simple-app:develop .
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASS
       - docker push twtest/simple-app:develop
   deploy-master:
     branch: master
@@ -23,5 +23,5 @@ deployment:
         docker build
         --build-arg APP_ENV=production
         -t twtest/simple-app:master .
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASS
       - docker push twtest/simple-app:master
