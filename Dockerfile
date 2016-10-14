@@ -16,4 +16,4 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONIOENCODING UTF-8
 ENV APP_ENV $APP_ENV
 
-CMD newrelic-admin run-program gunicorn src.wsgi -c /api/src/settings_gunicorn.py
+CMD newrelic-admin run-program gunicorn src.wsgi -c /simple-app/src/settings_gunicorn.py
