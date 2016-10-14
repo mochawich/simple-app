@@ -10,8 +10,8 @@ def index(request):
     if service_name:
         try:
             service = dockercloud.Service.list(name=service_name)[0]
-        except IndexError:
-            pass
+        except Exception as e:
+            print e
         else:
             containers_count = service.running_num_containers
     context = {
