@@ -7,7 +7,7 @@ machine:
     - docker
 
 deployment:
-  deploy-develop:
+  training:
     branch: develop
     commands:
       - >
@@ -16,21 +16,3 @@ deployment:
         -t $DOCKER_USER/simple-app:develop .
       - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASS
       - docker push $DOCKER_USER/simple-app:develop
-  deploy-master:
-    branch: master
-    commands:
-      - >
-        docker build
-        --build-arg APP_ENV=production
-        -t $DOCKER_USER/simple-app:master .
-      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASS
-      - docker push $DOCKER_USER/simple-app:master
-  deploy-other:
-    branch: *
-    commands:
-      - >
-        docker build
-        --build-arg APP_ENV=$CIRCLE_BRANCH
-        -t $DOCKER_USER/simple-app:$CIRCLE_BRANCH .
-      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASS
-      - docker push $DOCKER_USER/simple-app:$CIRCLE_BRANCH
