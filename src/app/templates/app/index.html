@@ -5,6 +5,10 @@
   <title>Simple App</title>
 </head>
 <body>
-<p>Hello ThoughtWorks. This is a simple app.</p>
+  <p>Hello ThoughtWorks.</p>
+  <p>This is a Simple App on the <b>{{ app_env }}</b> environment.</p>
+  <p>This instance is running on container: <b>{{ container }}</b></p>
+  <p>1 out of <b>{{ containers_count }}</b> other container(s) of the <b>{{ service }}</b> service.</p>
+  <p>The configuration is defined in the stack: <b>{{ stack }}</b></p>
 </body>
 </html>
