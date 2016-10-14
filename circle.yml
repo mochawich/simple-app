@@ -1,0 +1,37 @@
+machine:
+  pre:
+    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+  timezone:
+    Europe/Berlin
+  services:
+    - docker
+
+dependencies:
+  pre:
+  override:
+  post:
+
+test:
+  pre:
+  override:
+  post:
+
+deployment:
+  deploy-develop:
+    branch: develop
+    commands:
+      - >
+        docker build
+        --build-arg APP_ENV=training
+        -t twtest/simple-app:develop .
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push twtest/simple-app:develop
+  deploy-master:
+    branch: master
+    commands:
+      - >
+        docker build
+        --build-arg APP_ENV=production
+        -t twtest/simple-app:master .
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push twtest/simple-app:master

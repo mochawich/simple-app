@@ -1,0 +1,11 @@
+# core
+gunicorn==19.6.0
+requests==2.11.0
+Django==1.10.2
+
+# utils
+django-heartbeat
+
+# production requirements
+setproctitle
+newrelic

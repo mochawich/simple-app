@@ -1,0 +1,20 @@
+app-training:
+  image: 'twtest/simple-app:develop'
+  autoredeploy: true
+  environment:
+    - 'NEW_RELIC_APP_NAME=simple-app (training)'
+    - 'NEW_RELIC_LICENSE_KEY='
+  restart: always
+  tags:
+    - nodecluster-name=develop
+
+app-training-lb:
+  image: 'dockercloud/haproxy:latest'
+  links:
+    - app-training
+  ports:
+    - '80:80'
+  roles:
+    - global
+  tags:
+    - nodecluster-name=develop
