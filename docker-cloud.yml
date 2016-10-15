@@ -1,5 +1,5 @@
 app-training:
-  image: 'twtest/simple-app:develop'
+  image: 'DOCKER_USER/simple-app:develop'
   autoredeploy: true
   environment:
     - 'NEW_RELIC_APP_NAME=simple-app (training)'
